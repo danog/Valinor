@@ -150,7 +150,7 @@ final class ClassDefinitionCompilerTest extends UnitTestCase
         $code = $compiler->compile($class);
 
         try {
-            return eval("return $code;");
+            return eval("namespace CompiledCode; return $code;");
         } catch (Error $exception) {
             self::fail($exception->getMessage());
         }
